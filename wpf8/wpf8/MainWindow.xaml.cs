@@ -21,6 +21,7 @@ namespace wpf8
     public partial class MainWindow : Window
     {
         List<Cursor> cur = new List<Cursor>(29);
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +30,9 @@ namespace wpf8
                 typeof(Cursors).GetProperties())
                 cur.Add((Cursor)pi.GetValue(null, null));
             button1.Tag = 0;
+            var rs = Application.GetResourceStream(new Uri("pack://aplication:,,,/C" + i + ".cur"));
+            cur.Add(new Cursor(rs.Stream));
+
         }
 
         private void button1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -47,6 +51,32 @@ namespace wpf8
             button1.Cursor = cur[k];
             button1.Tag = k;
             e.Handled = true;
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Cursor = button1.Cursor;
+            button2.Content = "this.Cursors=" +
+                (Cursor == null ? "null" : Cursor.ToString());
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            ForceCursor = !ForceCursor;
+            button3.Content = "this.ForceCursor=" + ForceCursor;
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            Mouse.OverrideCursor = Mouse.OverrideCursor == null ?
+                button1.Cursor : null;
+            button4.Content = "Mouse.OverrideCursor=" + (Mouse.OverrideCursor == null ? "null" :
+                Mouse.OverrideCursor.ToString());
+        }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
