@@ -21,7 +21,7 @@ namespace wpf8
     public partial class MainWindow : Window
     {
         List<Cursor> cur = new List<Cursor>(29);
-        
+        BitmapImage[] ico = new BitmapImage[2];
         public MainWindow()
         {
             InitializeComponent();
@@ -30,12 +30,19 @@ namespace wpf8
                 typeof(Cursors).GetProperties())
                 cur.Add((Cursor)pi.GetValue(null, null));
             button1.Tag = 0;
-           
-                var rs = Application.GetResourceStream(new Uri("pack://application:,,,/C" + 3 + ".cur"));
-                cur.Add(new Cursor(rs.Stream));
-            
-        }
 
+            for (int i = 1; i < 8; i++)
+            {
+                var rs = Application.GetResourceStream(new Uri("pack://application:,,,/C" + i + ".cur"));
+                cur.Add(new Cursor(rs.Stream));
+            }
+            ico[0] = new BitmapImage(new Uri("pack://application:,,,/computer.ico"));
+            ico[1] = new BitmapImage(new Uri("pack://application:,,,/Folder.ico"));
+            Icon = ico[0];
+            button5.Tag = 0;
+           
+        }
+        
         private void button1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             int k = (int)button1.Tag, c = cur.Count;
@@ -73,11 +80,16 @@ namespace wpf8
                 button1.Cursor : null;
             button4.Content = "Mouse.OverrideCursor=" + (Mouse.OverrideCursor == null ? "null" :
                 Mouse.OverrideCursor.ToString());
+            
         }
 
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-
+            int k = ((int)button5.Tag + 1) % 2;
+            button5.Content = "Icon " + k;
+            button5.Tag = k;
+            Icon = ico[k];
         }
+        
     }
 }

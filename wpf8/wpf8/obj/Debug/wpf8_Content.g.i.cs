@@ -8,13 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("c1.cur")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("c2.cur")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("c3.cur")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("c4.cur")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("c5.cur")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("c6.cur")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("c7.cur")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("c8.cur")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("warning.ico")]
 
 

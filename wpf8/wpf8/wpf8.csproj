@@ -104,5 +104,11 @@
     <Resource Include="C7.cur" />
     <Resource Include="C8.cur" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="computer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Folder.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
