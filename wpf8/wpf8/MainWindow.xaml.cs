@@ -30,9 +30,10 @@ namespace wpf8
                 typeof(Cursors).GetProperties())
                 cur.Add((Cursor)pi.GetValue(null, null));
             button1.Tag = 0;
-            var rs = Application.GetResourceStream(new Uri("pack://aplication:,,,/C" + i + ".cur"));
-            cur.Add(new Cursor(rs.Stream));
-
+           
+                var rs = Application.GetResourceStream(new Uri("pack://application:,,,/C" + 3 + ".cur"));
+                cur.Add(new Cursor(rs.Stream));
+            
         }
 
         private void button1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
